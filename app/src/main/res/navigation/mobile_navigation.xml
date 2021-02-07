@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/one">
+
+    <fragment
+        android:id="@+id/one"
+        android:name="com.example.navhostfragmenttest.one"
+        android:label="fragment_one"
+        tools:layout="@layout/fragment_one">
+        <action
+            android:id="@+id/action_one_to_two"
+            app:destination="@id/two"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
+    <fragment
+        android:id="@+id/two"
+        android:name="com.example.navhostfragmenttest.two"
+        android:label="fragment_two"
+        tools:layout="@layout/fragment_two" >
+        <action
+            android:id="@+id/action_two_to_three"
+            app:destination="@id/three"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/three"
+        android:name="com.example.navhostfragmenttest.three"
+        android:label="fragment_three"
+        tools:layout="@layout/fragment_three" >
+        <action
+            android:id="@+id/action_three_to_four"
+            app:destination="@id/four" />
+    </fragment>
+    <fragment
+        android:id="@+id/four"
+        android:name="com.example.navhostfragmenttest.four"
+        android:label="fragment_four"
+        tools:layout="@layout/fragment_four" >
+        <action
+            android:id="@+id/action_four_to_my_dialog_fragment"
+            app:destination="@id/my_dialog_fragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/my_dialog_fragment"
+        android:name="com.example.navhostfragmenttest.MyDialogFragment">
+<!--        <argument android:name="myarg" android:defaultValue="@null" />-->
+<!--        <action-->
+<!--            android:id="@+id/myaction"-->
+<!--            app:destination="@+id/another_destination"/>-->
+    </dialog>
+    <action
+        android:id="@+id/action_global_one"
+        app:destination="@id/one"
+        app:popUpTo="@+id/one"
+        app:popUpToInclusive="true"/>
+</navigation>
